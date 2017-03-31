@@ -1,5 +1,5 @@
-# Pineapple CAM Project
-# download CAM RNA-Seq data;
+### Pineapple CAM Project
+### download CAM RNA-Seq data;
 In NCBI SRA, the paired reads were joined in one fastq, therefore flag --split-files would be used to split reads
 ```{php}
 nano download.sh
@@ -9,21 +9,21 @@ do
  fastq-dump --split-files -A $i
 done
 ```
-# download reference genome
+### download reference genome
 ```{php}
 mkdir reference && cd reference
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/540/865/GCF_001540865.1_ASM154086v1/GCF_001540865.1_ASM154086v1_genomic.fna.gz
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/540/865/GCF_001540865.1_ASM154086v1/GCF_001540865.1_ASM154086v1_genomic.gff.gz
 gunzip *.gz
 ```
-# fastqc
+### fastqc
 ```{php}
 mkdir 1_fastqc && cd 1_fastqc
 module load fastqc
 qrsh -q medium* mem=10G
 fastqc ../raw_data/*.fastq -o ./
 ```
-# trimming (trimmomatic)
+### trimming (trimmomatic)
 ```{php}
 mkdir 2_trim && cd 2_trim
 module load trimmomatic
@@ -42,13 +42,13 @@ SLIDINGWINDOW:4:15 \
 MINLEN:30
 >& 6511.output
 ```
-# fastqc
-
+### fastqc
+```{php}
 mkdir 3_fastqc && cd 3_fastqc
 
 
 
-
+```
 
 
 
